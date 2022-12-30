@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.youtube</groupId>
-    <artifactId>jwt</artifactId>
+    <artifactId>ecommerce-java</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>jwt-youtube</name>
+    <name>ecommerce-java</name>
     <description>Demo project to understand JWT token + role based authentication</description>
     <properties>
         <java.version>1.8</java.version>
