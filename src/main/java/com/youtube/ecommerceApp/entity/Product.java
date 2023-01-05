@@ -1,9 +1,16 @@
 package com.youtube.ecommerceApp.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Product {
@@ -17,6 +24,26 @@ public class Product {
 	private String productDiscountPrice;
 	
 	
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinTable(name = "product_images",
+	joinColumns = {
+			@JoinColumn(name="product_id")
+	},
+	inverseJoinColumns = {
+			@JoinColumn(name="image_di")
+	}
+	)
+	private Set<ImageModel> imageModels;
+	
+	
+	
+	
+	public Set<ImageModel> getImageModels() {
+		return imageModels;
+	}
+	public void setImageModels(Set<ImageModel> imageModels) {
+		this.imageModels = imageModels;
+	}
 	public Integer getProductId() {
 		return productId;
 	}
