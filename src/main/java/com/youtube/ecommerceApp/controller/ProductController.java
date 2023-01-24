@@ -38,7 +38,7 @@ public class ProductController {
 		
 		try {
 		Set<ImageModel>  imageModels=	uploadImage(file);
-		product.setImageModels(imageModels);
+		product.setproductImages(imageModels);
 		return productService.addNewProduct(product);
 		} catch (IOException e) {
 		
@@ -53,7 +53,7 @@ public class ProductController {
 	
 	public Set<ImageModel> uploadImage(MultipartFile[] multipartFiles) throws IOException
 	{
-		Set<ImageModel> imageModels=new HashSet<>();
+		Set<ImageModel> productImages=new HashSet<>();
 		
 		for(MultipartFile multipartFile:multipartFiles)
 		{
@@ -64,9 +64,9 @@ public class ProductController {
 					multipartFile.getBytes()
 					);
 			
-			imageModels.add(imageModel);
+			productImages.add(imageModel);
 		}
-		return imageModels;
+		return productImages;
 	}
 	
 	@GetMapping("/getAllProducts")

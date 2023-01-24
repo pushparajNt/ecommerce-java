@@ -33,16 +33,16 @@ public class Product {
 			@JoinColumn(name="image_di")
 	}
 	)
-	private Set<ImageModel> imageModels;
+	private Set<ImageModel> productImages;
 	
 	
 	
 	
-	public Set<ImageModel> getImageModels() {
-		return imageModels;
+	public Set<ImageModel> getproductImages() {
+		return productImages;
 	}
-	public void setImageModels(Set<ImageModel> imageModels) {
-		this.imageModels = imageModels;
+	public void setproductImages(Set<ImageModel> productImages) {
+		this.productImages = productImages;
 	}
 	public Integer getProductId() {
 		return productId;
