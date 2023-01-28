@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.youtube.ecommerceApp.dao.ProductDao;
 import com.youtube.ecommerceApp.entity.ImageModel;
 import com.youtube.ecommerceApp.entity.Product;
 import com.youtube.ecommerceApp.service.ProductService;
@@ -69,17 +70,29 @@ public class ProductController {
 		return productImages;
 	}
 	
+	
+	@PreAuthorize("hasRole('Admin')")
 	@GetMapping("/getAllProducts")
 	public List<Product> getAllProducts()
 	{
 		return productService.getAllProducts();
 	}
 	
+	@PreAuthorize("hasRole('Admin')")
+	@GetMapping({"/getProductById/{productId}"})
+	public Product getProductById(@PathVariable("productId") Integer productId)
+	{
+		return productService.getProductById(productId);
+	}
+	
+	@PreAuthorize("hasRole('Admin')")
 	@DeleteMapping("/deleteProductDetails/{productId}")
 	public void deleteProductDetails(@PathVariable("productId") Integer poductId)
 	
 	{
 	   productService.deleteProductDetails(poductId);	
 	}
+	
+	
 	
 }
